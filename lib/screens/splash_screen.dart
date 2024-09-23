@@ -21,12 +21,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 
   splashScreenFunction() {
     Timer(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
       () {
         if (FirebaseAuthentication().getUID() != null) {
           context.go('/homeScreen');

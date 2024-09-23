@@ -2,6 +2,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:planify/models/user_model.dart';
 import 'package:planify/widgets/show_snackbar.dart';
 
 class FirebaseAuthentication {
@@ -9,7 +10,7 @@ class FirebaseAuthentication {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   getUID() {
-    return _auth.currentUser != null ? _auth.currentUser!.uid : null;
+    return _auth.currentUser?.uid;
   }
 
   Future<UserCredential?> loginUsingGoogle(BuildContext context) async {
@@ -42,5 +43,14 @@ class FirebaseAuthentication {
       );
       return null;
     }
+  }
+
+  UserModel? getUserDetails() {
+    UserModel user = UserModel(
+      name: _auth.currentUser!.displayName ?? "No Name",
+      email: _auth.currentUser!.email ?? "No email",
+      imageUrl: _auth.currentUser!.photoURL ?? "No Photo",
+    );
+    return user;
   }
 }

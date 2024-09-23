@@ -8,15 +8,15 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => SplashScreen(),
+      builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
       path: '/login',
-      builder: (context, state) => LoginScreen(),
+      builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
       path: '/homeScreen',
-      builder: (context, state) => HomeScreen(),
+      builder: (context, state) => const HomeScreen(),
     )
   ],
 );
