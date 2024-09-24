@@ -65,9 +65,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: Checkbox(
                     value: tasks[i].isDone,
                     onChanged: (val) {
-                      setState(() {
-                        tasks[i].isDone = val!;
-                      });
+                      setState(
+                        () {
+                          tasks[i].isDone = val!;
+                        },
+                      );
                     }),
                 tileColor: Colors.grey.shade200,
                 title: Text(tasks[i].title ?? "no Title"),
