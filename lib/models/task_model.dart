@@ -25,7 +25,6 @@ class Task {
     this.isDailyTask,
   });
 
-  // Convert a Task object into a JSON map
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -40,7 +39,6 @@ class Task {
     };
   }
 
-  // Create a Task object from a JSON map
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
       id: json['id'],
@@ -84,7 +82,6 @@ class SubTask {
     };
   }
 
-  // Create a SubTask object from a JSON map
   factory SubTask.fromJson(Map<String, dynamic> json) {
     return SubTask(
       id: json['id'],

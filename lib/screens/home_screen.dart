@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:planify/methods/firebase_auth.dart';
 import 'package:planify/models/task_model.dart';
 import 'package:planify/models/user_model.dart';
+import 'package:planify/routes.dart';
 import 'package:planify/widgets/task_edit.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: const Drawer(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
             title: Text(currentUser!.name!),
@@ -56,6 +59,32 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+          ),
+          GestureDetector(
+            onTap: () {
+              context.push('/priorityTasks');
+            },
+            child: Card(
+              child: Container(
+                width: MediaQuery.of(context).size.width / 2,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Icon(Icons.priority_high),
+                    Text("Priority Tasks!"),
+                    SizedBox(
+                      height: 5,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
           ),
           ListView.builder(
             shrinkWrap: true,
